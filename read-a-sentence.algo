@@ -1,0 +1,91 @@
+// This program reads a sentence from the user and stores the number of character in a variable.
+// This program reads a sentence from the user and stores its length in a variable.
+// It also counts the number of vowels in the sentence and returns that count.
+// The program demonstrates basic string manipulation and counting in a simple way.
+// The program uses functions to encapsulate the logic for calculating the length of the sentence, count the number of characters and counting vowels.
+// The program is written in a simple pseudo-code style for educational purposes.
+// This program reads a sentence from the user, calculates its length, and counts the number of character and vowels in it.
+
+ALGORITHM SENTENCE
+
+VAR
+    strCount : INTEGER; // Variable to hold the count of characters
+    wrdCount : INTEGER; // Variable to hold the count of words
+    vwCount : INTEGER; // Variable to hold the count of vowels
+    // Variables to hold the number of vowels, words, and characters
+    // strCount is the number of characters, wrdCount is the number of words, and vwCount is the number of vowels
+
+BEGIN
+
+    FUNCTION character_count(str : STRING) : INTEGER
+    VAR
+        strCount := 0; // Initialize character count to zero
+        // Variable to hold the count of characters
+        i := 0 : INTEGER;
+        // Variable to iterate through the string
+    BEGIN
+        FOR i := 1 TO LENGTH(str) STEP 1 DO
+        strCount := strCount + 1; // Increment count for each character in the sentence
+        i++; // Move to the next character
+        END FOR;
+        RETURN strCount; // Return the total character count
+    END FUNCTION
+
+    // Function to count the number of words in a string
+    // This function counts the number of words in a given string by checking for spaces and punctuation
+    FUNCTION word_count(str : STRING) : INTEGER
+    VAR
+    i : INTEGER;
+    wrdCount := 0; // End the sentence with period "." to start the count of words from zero. 
+    BEGIN
+    FOR i := 1 TO LENGTH(str) STEP 1 DO
+        IF (str[i] = ' ' OR str[i]='.') THEN
+            count := count + 1; // Increment count for each space found
+        END IF;
+        i++;
+    END FOR;
+    RETURN wrdCount; // Return the total word count
+    END FUNCTION;
+
+
+    // Function to count the number of vowels in a string
+    FUNCTION count_vowels(str : STRING) : INTEGER
+    VAR
+    i : INTEGER;
+    vwCount : INTEGER := 0;
+    BEGIN       
+    FOR i := 1 TO LENGTH(str) STEP 1 DO
+        IF (str[i] = 'a' OR str[i] = 'e' OR str[i] = 'i' OR 
+            str[i] = 'o' OR str[i] = 'u' OR 
+            str[i] = 'A' OR str[i] = 'E' OR str[i] = 'I' OR 
+            str[i] = 'O' OR str[i] = 'U') THEN
+            vwCount := vwCount + 1;
+        ENDIF;
+        i++;
+    END FOR;
+    RETURN vwCount;
+    END FUNCTION;
+
+    // Function to read a sentence from the user
+    // Main program execution
+    VAR
+        str : STRING;
+        strCount : INTEGER;
+        wrdCount : INTEGER;
+        vwCount : INTEGER;
+    // Variables to hold the input sentence and the counts of characters, words, and vowels
+    BEGIN
+        write("Enter a sentence: ");
+        read(str); // Read the input sentence from the user
+
+        strCount := character_count(str); // Call function to count characters
+        wrdCount := word_count(str); // Call function to count words
+        vwCount := count_vowels(str); // Call function to count vowels
+
+        write("The number of characters is ", strCount);
+        write("The number of words is ", wrdCount);
+        write("The number of vowels is ", vwCount);
+    END;
+
+END
+
