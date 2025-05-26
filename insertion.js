@@ -1,5 +1,5 @@
-// Javascript program for insertion sort 
 
+// Javascript program for insertion sort 
 // Function to sort array using insertion sort
 function insertionSort(arr) {
     for (let i = 1; i < arr.length; i++) {
